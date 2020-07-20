@@ -8,6 +8,7 @@ import {
   Card,
   Timeline,
   Collapse,
+  Tag
 } from "antd"
 const { Title } = Typography
 const { Panel } = Collapse
@@ -18,7 +19,7 @@ export default ({ details }) => {
       <>
         <Collapse>
           {details.map(concern => (
-            <Panel header={`${concern.name}`}>
+            <Panel header={`${concern.name}`} extra={<Tag>{concern.status}</Tag>}>
               <Card>
                 <Descriptions>
                   <Descriptions.Item label="Status">
