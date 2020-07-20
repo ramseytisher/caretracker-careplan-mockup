@@ -203,7 +203,26 @@ export const mockData = [
               progression: "Progressing",
               discipline: "Medical",
               progressionUpdated: "9/6/2019 12:05PM",
-              comments: "No short term goal comments",
+              comments: [
+                {
+                  id: "1",
+                  comment: "Comment related to health concern",
+                  commentUser: "Penny Dubois",
+                  commentDateTime: "09/09/2019 20:32",
+                },
+                {
+                  id: "2",
+                  comment: "Comment related to health concern",
+                  commentUser: "Penny Dubois",
+                  commentDateTime: "09/09/2019 20:32",
+                },
+                {
+                  id: "3",
+                  comment: "Comment related to health concern",
+                  commentUser: "Penny Dubois",
+                  commentDateTime: "09/09/2019 20:32",
+                },
+              ],
               activities: [
                 {
                   description: "Hamstring stretches daily",
@@ -231,7 +250,26 @@ export const mockData = [
           progression: "Regressing",
           discipline: "Medical",
           progressionUpdated: "10/9/2019 12:05PM",
-          comments: "No goal comments",
+          comments: [
+            {
+              id: "1",
+              comment: "Comment related to health concern",
+              commentUser: "Penny Dubois",
+              commentDateTime: "09/09/2019 20:32",
+            },
+            {
+              id: "2",
+              comment: "Comment related to health concern",
+              commentUser: "Penny Dubois",
+              commentDateTime: "09/09/2019 20:32",
+            },
+            {
+              id: "3",
+              comment: "Comment related to health concern",
+              commentUser: "Penny Dubois",
+              commentDateTime: "09/09/2019 20:32",
+            },
+          ],
           activities: [
             {
               description: "Take Medication As Prescribed",

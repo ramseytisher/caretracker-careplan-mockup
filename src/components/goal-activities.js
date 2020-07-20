@@ -88,6 +88,16 @@ export default ({ longTermGoals, otherGoals }) => {
                   </Panel>
                 ))}
               </Collapse>
+              <Divider orientation="left">Goal Comments</Divider>
+              <Card>
+                <Timeline>
+                  {longGoal.comments.map(comment => (
+                    <Timeline.Item>
+                      {`${comment.commentUser}, ${comment.commentDateTime}: ${comment.comment}`}
+                    </Timeline.Item>
+                  ))}
+                </Timeline>
+              </Card>
             </Card>
           </Panel>
         ))}
@@ -136,6 +146,16 @@ export default ({ longTermGoals, otherGoals }) => {
                   </Panel>
                 ))}
               </Collapse>
+              <Divider orientation="left">Goal Comments</Divider>
+              <Card>
+                <Timeline>
+                  {otherGoal.comments.map(comment => (
+                    <Timeline.Item>
+                      {`${comment.commentUser}, ${comment.commentDateTime}: ${comment.comment}`}
+                    </Timeline.Item>
+                  ))}
+                </Timeline>
+              </Card>
             </Card>
           </Panel>
         ))}
