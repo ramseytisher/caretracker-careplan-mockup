@@ -8,7 +8,7 @@ import {
   Card,
   Timeline,
   Collapse,
-  Tag
+  Tag,
 } from "antd"
 const { Title } = Typography
 const { Panel } = Collapse
@@ -19,7 +19,15 @@ export default ({ longTermGoals, otherGoals }) => {
       <Divider orientation="left">Long-Term Goals</Divider>
       <Collapse>
         {longTermGoals.map(longGoal => (
-          <Panel header={`${longGoal.description}`} extra={<Tag>{longGoal.progression}</Tag>}>
+          <Panel
+            header={`${longGoal.description}`}
+            extra={
+              <>
+                <Tag>{longGoal.progression}</Tag>
+                <Tag>{longGoal.discipline}</Tag>
+              </>
+            }
+          >
             <Card>
               <Descriptions>
                 <Descriptions.Item label="Status">
@@ -106,7 +114,15 @@ export default ({ longTermGoals, otherGoals }) => {
       <Divider orientation="left">Other Goals</Divider>
       <Collapse>
         {otherGoals.map(otherGoal => (
-          <Panel header={otherGoal.description} extra={<Tag>{otherGoal.progression}</Tag>}>
+          <Panel
+            header={otherGoal.description}
+            extra={
+              <>
+                <Tag>{otherGoal.progression}</Tag>
+                <Tag>{otherGoal.discipline}</Tag>
+              </>
+            }
+          >
             <Card>
               <Descriptions>
                 <Descriptions.Item label="Status">
