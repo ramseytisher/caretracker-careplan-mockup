@@ -6,7 +6,7 @@ import { Row, Col, Menu, Table, Drawer, List, Card, PageHeader } from "antd"
 
 import { mockData } from "../data/mock-data"
 
-import HealthConcern from "../components/health-concern"
+import HealthConcerns from "../components/health-concerns"
 import GoalActivities from "../components/goal-activities"
 
 const columns = [
@@ -48,28 +48,29 @@ export default () => {
         <Menu.Item key="strengths">Strengths</Menu.Item>
       </Menu>
       {show === "healthConcerns" && (
-        <Table
-          columns={[
-            { title: "Concern", dataIndex: "name", key: "name" },
-            { title: "Status", dataIndex: "status", key: "status" },
-            { title: "Onset Date", dataIndex: "onsetDate", key: "onsetDate" },
-          ]}
-          onRow={(record, rowIndex) => {
-            return {
-              onClick: event => {
-                setDetails(record)
-              },
-            }
-          }}
-          dataSource={mockData[patient].healthConcerns}
-          pagination={false}
-        />
+        <HealthConcerns details={mockData[patient].healthConcerns} />
+        // <Table
+        //   columns={[
+        //     { title: "Concern", dataIndex: "name", key: "name" },
+        //     { title: "Status", dataIndex: "status", key: "status" },
+        //     { title: "Onset Date", dataIndex: "onsetDate", key: "onsetDate" },
+        //   ]}
+        //   onRow={(record, rowIndex) => {
+        //     return {
+        //       onClick: event => {
+        //         setDetails(record)
+        //       },
+        //     }
+        //   }}
+        //   dataSource={mockData[patient].healthConcerns}
+        //   pagination={false}
+        // />
       )}
       {show === "goalsActivities" && (
-          <GoalActivities
-            longTermGoals={mockData[patient].goals.longTermGoals}
-            otherGoals={mockData[patient].goals.otherGoals}
-          />
+        <GoalActivities
+          longTermGoals={mockData[patient].goals.longTermGoals}
+          otherGoals={mockData[patient].goals.otherGoals}
+        />
       )}
       {show === "strengths" && (
         <Card title="Strengths">
@@ -82,15 +83,6 @@ export default () => {
           />
         </Card>
       )}
-      <Drawer
-        visible={details}
-        placement="bottom"
-        onClose={() => setDetails(null)}
-        closable={true}
-        height="80vh"
-      >
-        {show === "healthConcerns" && <HealthConcern details={details} />}
-      </Drawer>
     </Layout>
   )
 }
