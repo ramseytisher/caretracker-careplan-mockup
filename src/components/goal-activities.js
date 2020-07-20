@@ -52,7 +52,15 @@ export default ({ longTermGoals, otherGoals }) => {
               <Divider orientation="left">Short-Term Goals</Divider>
               <Collapse>
                 {longGoal.shortTermGoals.map(shortGoal => (
-                  <Panel header={shortGoal.description}>
+                  <Panel
+                    header={shortGoal.description}
+                    extra={
+                      <>
+                        <Tag>{shortGoal.progression}</Tag>
+                        <Tag>{shortGoal.discipline}</Tag>
+                      </>
+                    }
+                  >
                     <Card>
                       <Descriptions>
                         <Descriptions.Item label="Status">
