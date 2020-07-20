@@ -6,6 +6,9 @@ import { Row, Col, Menu, Table, Drawer, List, Card, PageHeader } from "antd"
 
 import { mockData } from "../data/mock-data"
 
+import HealthConcern from "../components/health-concern"
+import GoalActivities from "../components/goal-activities"
+
 const columns = [
   {
     title: "Health Concern",
@@ -31,7 +34,10 @@ export default () => {
         title="CareTracker Care Plan Information"
         subTitle="This is only a mockup"
       />
-      <PageHeader title="This would be resident demographic bar" style={{ backgroundColor: '#00A8E1' }}/>
+      <PageHeader
+        title="This would be resident demographic bar"
+        style={{ backgroundColor: "#00A8E1" }}
+      />
       <Menu
         onClick={e => setShow(e.key)}
         selectedKeys={[show]}
@@ -60,38 +66,10 @@ export default () => {
         />
       )}
       {show === "goalsActivities" && (
-        <>
-          <Card title="Long Term Goals">
-            <Table
-              columns={[{ dataIndex: "description", key: "description" }]}
-              onRow={(record, rowIndex) => {
-                return {
-                  onClick: event => {
-                    setDetails(record)
-                  },
-                }
-              }}
-              showHeader={false}
-              dataSource={mockData[patient].goals.longTermGoals}
-              pagination={false}
-            />
-          </Card>
-          <Card title="Other Goals">
-            <Table
-              columns={[{ dataIndex: "description", key: "description" }]}
-              onRow={(record, rowIndex) => {
-                return {
-                  onClick: event => {
-                    setDetails(record)
-                  },
-                }
-              }}
-              showHeader={false}
-              dataSource={mockData[patient].goals.otherGoals}
-              pagination={false}
-            />
-          </Card>
-        </>
+          <GoalActivities
+            longTermGoals={mockData[patient].goals.longTermGoals}
+            otherGoals={mockData[patient].goals.otherGoals}
+          />
       )}
       {show === "strengths" && (
         <Card title="Strengths">
@@ -111,7 +89,7 @@ export default () => {
         closable={true}
         height="80vh"
       >
-        <pre>{JSON.stringify(details, null, 2)}</pre>
+        {show === "healthConcerns" && <HealthConcern details={details} />}
       </Drawer>
     </Layout>
   )
