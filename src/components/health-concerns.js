@@ -1,5 +1,7 @@
 import React from "react"
 
+import Goal from "./goal"
+
 import {
   Typography,
   Button,
@@ -8,18 +10,26 @@ import {
   Card,
   Timeline,
   Collapse,
-  Tag
+  Tag,
 } from "antd"
 const { Title } = Typography
 const { Panel } = Collapse
 
-export default ({ details }) => {
-  if (details) {
+export default ({ concerns, goals }) => {
+  function getGoalName(id) {
+    const goal = goals.find(g => g.id === id)
+    return goal.description
+  }
+
+  if (concerns) {
     return (
       <>
         <Collapse>
-          {details.map(concern => (
-            <Panel header={`${concern.name}`} extra={<Tag>{concern.status}</Tag>}>
+          {concerns.map(concern => (
+            <Panel
+              header={`${concern.name}`}
+              extra={<Tag>{concern.status}</Tag>}
+            >
               <Card>
                 <Descriptions>
                   <Descriptions.Item label="Status">
@@ -29,6 +39,22 @@ export default ({ details }) => {
                     {concern.onsetDate}
                   </Descriptions.Item>
                 </Descriptions>
+                <Divider orientation="left">Associated Goals</Divider>
+                <Collapse>
+                  {concern.associatedGoals.map(goal => (
+                    <Panel
+                      header={getGoalName(goal)}
+                      extra={
+                        <>
+                          <Tag>Progressing</Tag>
+                          <Tag>Medical</Tag>
+                        </>
+                      }
+                    >
+                      <Goal goal={goals.find(g => g.id === goal)} />
+                    </Panel>
+                  ))}
+                </Collapse>
                 <Divider orientation="left">Comments</Divider>
                 <Timeline>
                   {concern.comments.map(comment => (
@@ -42,7 +68,7 @@ export default ({ details }) => {
           ))}
         </Collapse>
 
-        {/* <pre>{JSON.stringify(details, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(concerns, null, 2)}</pre> */}
       </>
     )
   } else return null

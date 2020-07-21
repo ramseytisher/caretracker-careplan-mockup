@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { navigate } from "gatsby"
 
 import { Row, Col, Menu, Table, Drawer, List, Card, PageHeader } from "antd"
+import { UserOutlined } from "@ant-design/icons"
 
 import { mockData } from "../data/mock-data"
 
@@ -37,6 +38,7 @@ export default () => {
       <PageHeader
         title="This would be resident demographic bar"
         style={{ backgroundColor: "#00A8E1" }}
+        avatar={<UserOutlined />}
       />
       <Menu
         onClick={e => setShow(e.key)}
@@ -48,7 +50,7 @@ export default () => {
         <Menu.Item key="strengths">Strengths</Menu.Item>
       </Menu>
       {show === "healthConcerns" && (
-        <HealthConcerns details={mockData[patient].healthConcerns} />
+        <HealthConcerns concerns={mockData[patient].healthConcerns} goals={mockData[patient].goals} />
         // <Table
         //   columns={[
         //     { title: "Concern", dataIndex: "name", key: "name" },
@@ -68,8 +70,7 @@ export default () => {
       )}
       {show === "goalsActivities" && (
         <GoalActivities
-          longTermGoals={mockData[patient].goals.longTermGoals}
-          otherGoals={mockData[patient].goals.otherGoals}
+          goals={mockData[patient].goals}
         />
       )}
       {show === "strengths" && (

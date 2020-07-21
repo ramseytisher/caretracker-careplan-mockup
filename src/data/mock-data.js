@@ -13,6 +13,7 @@ export const mockData = [
         createdBy: "Penny Dubois",
         updatedDateTime: "09/06/2019 18:09",
         updatedBy: "Penny Dubois",
+        associatedGoals: [],
         codifiedHealthConcern: "--",
         comments: [
           {
@@ -45,6 +46,7 @@ export const mockData = [
         createdBy: "Penny Dubois",
         updatedDateTime: "09/06/2019 18:09",
         updatedBy: "Penny Dubois",
+        associatedGoals: [1],
         codifiedHealthConcern: "--",
         comments: [
           {
@@ -77,6 +79,7 @@ export const mockData = [
         createdBy: "Penny Dubois",
         updatedDateTime: "09/06/2019 18:09",
         updatedBy: "Penny Dubois",
+        associatedGoals: [2],
         codifiedHealthConcern: "--",
         comments: [
           {
@@ -109,6 +112,7 @@ export const mockData = [
         createdBy: "Penny Dubois",
         updatedDateTime: "09/06/2019 18:09",
         updatedBy: "Penny Dubois",
+        associatedGoals: [2],
         codifiedHealthConcern: "--",
         comments: [
           {
@@ -141,6 +145,7 @@ export const mockData = [
         createdBy: "Penny Dubois",
         updatedDateTime: "09/06/2019 18:09",
         updatedBy: "Penny Dubois",
+        associatedGoals: [2],
         codifiedHealthConcern: "--",
         comments: [
           {
@@ -164,129 +169,188 @@ export const mockData = [
         ],
       },
     ],
-    goals: {
-      longTermGoals: [
-        {
-          description: "Louie wants to be able to play with his grandchilren.",
-          targetDate: "11/30/2019",
-          status: "In Progress",
-          owner: "REED, LOUIE",
-          progression: "Progressing",
-          discipline: "Medical, Behavioral, Patient",
-          progressionUpdated: "9/6/2019 12:05PM",
-          comments: [
-            {
-              id: "1",
-              comment: "Comment related to goal.",
-              commentUser: "Penny Dubois",
-              commentDateTime: "09/09/2019 20:32",
-            },
-            {
-              id: "2",
-              comment: "Comment related to goal, more...",
-              commentUser: "Penny Dubois",
-              commentDateTime: "09/09/2019 20:32",
-            },
-            {
-              id: "3",
-              comment: "Comment related to goal, even more ...",
-              commentUser: "Penny Dubois",
-              commentDateTime: "09/09/2019 20:32",
-            },
-          ],
-          shortTermGoals: [
-            {
-              description: "Improve knee pain",
-              targetDate: "11/01/2019",
-              status: "In Progress",
-              owner: "REED, LOUIE",
-              progression: "Progressing",
-              discipline: "Medical",
-              progressionUpdated: "9/6/2019 12:05PM",
-              comments: [
-                {
-                  id: "1",
-                  comment: "Comment related to health concern",
-                  commentUser: "Penny Dubois",
-                  commentDateTime: "09/09/2019 20:32",
-                },
-                {
-                  id: "2",
-                  comment: "Comment related to health concern",
-                  commentUser: "Penny Dubois",
-                  commentDateTime: "09/09/2019 20:32",
-                },
-                {
-                  id: "3",
-                  comment: "Comment related to health concern",
-                  commentUser: "Penny Dubois",
-                  commentDateTime: "09/09/2019 20:32",
-                },
-              ],
-              activities: [
-                {
-                  description: "Hamstring stretches daily",
-                  schedule: "1 times every 1 Days for 6 Months",
-                  owner: "--",
-                  discipline: "Physical Terapy, Patient",
-                },
-                {
-                  description: "Walk for 30 minutes daily",
-                  schedule: "1 times every 1 Days for 6 Months",
-                  owner: "--",
-                  discipline: "Physical Terapy, Patient",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-      otherGoals: [
-        {
-          description: "Maintain a Healthy Blood Pressure",
-          targetDate: "12/31/2019",
-          status: "In Progress",
-          owner: "REED, LOUIE",
-          progression: "Regressing",
-          discipline: "Medical",
-          progressionUpdated: "10/9/2019 12:05PM",
-          comments: [
-            {
-              id: "1",
-              comment: "Comment related to health concern",
-              commentUser: "Penny Dubois",
-              commentDateTime: "09/09/2019 20:32",
-            },
-            {
-              id: "2",
-              comment: "Comment related to health concern",
-              commentUser: "Penny Dubois",
-              commentDateTime: "09/09/2019 20:32",
-            },
-            {
-              id: "3",
-              comment: "Comment related to health concern",
-              commentUser: "Penny Dubois",
-              commentDateTime: "09/09/2019 20:32",
-            },
-          ],
-          activities: [
-            {
-              description: "Take Medication As Prescribed",
-              schedule: "No",
-              owner: "REED, LOUIE",
-              discipline: "Medical",
-            },
-            {
-              description: "Walk for 30 minutes daily",
-              schedule: "1 times every 1 Days for 6 Months",
-              owner: "--",
-              discipline: "Physical Terapy, Patient",
-            },
-          ],
-        },
-      ],
-    },
+    goals: [
+      {
+        id: 1,
+        description: "Louie wants to be able to play with his grandchilren.",
+        longTerm: true,
+        other: false,
+        targetDate: "11/30/2019",
+        status: "In Progress",
+        owner: "REED, LOUIE",
+        progression: "Progressing",
+        discipline: "Medical, Behavioral, Patient",
+        progressionUpdated: "9/6/2019 12:05PM",
+        supportGoals: [2, 3],
+        comments: [
+          {
+            id: "1",
+            comment: "Comment related to goal.",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "2",
+            comment: "Comment related to goal, more...",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "3",
+            comment: "Comment related to goal, even more ...",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+        ],
+        activities: [
+          {
+            description: "Hamstring stretches daily",
+            schedule: "1 times every 1 Days for 6 Months",
+            owner: "--",
+            discipline: "Physical Terapy, Patient",
+          },
+          {
+            description: "Walk for 30 minutes daily",
+            schedule: "1 times every 1 Days for 6 Months",
+            owner: "--",
+            discipline: "Physical Terapy, Patient",
+          },
+        ],
+      },
+      {
+        id: 2,
+        description: "Improve knee pain",
+        targetDate: "11/01/2019",
+        status: "In Progress",
+        owner: "REED, LOUIE",
+        progression: "Progressing",
+        discipline: "Medical",
+        progressionUpdated: "9/6/2019 12:05PM",
+        comments: [
+          {
+            id: "1",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "2",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "3",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+        ],
+        activities: [
+          {
+            description: "Hamstring stretches daily",
+            schedule: "1 times every 1 Days for 6 Months",
+            owner: "--",
+            discipline: "Physical Terapy, Patient",
+          },
+          {
+            description: "Walk for 30 minutes daily",
+            schedule: "1 times every 1 Days for 6 Months",
+            owner: "--",
+            discipline: "Physical Terapy, Patient",
+          },
+        ],
+      },
+      {
+        id: 3,
+        description: "Maintain a Healthy Blood Pressure",
+        targetDate: "12/31/2019",
+        status: "In Progress",
+        owner: "REED, LOUIE",
+        progression: "Regressing",
+        discipline: "Medical",
+        progressionUpdated: "10/9/2019 12:05PM",
+        comments: [
+          {
+            id: "1",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "2",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "3",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+        ],
+        activities: [
+          {
+            description: "Take Medication As Prescribed",
+            schedule: "No",
+            owner: "REED, LOUIE",
+            discipline: "Medical",
+          },
+          {
+            description: "Walk for 30 minutes daily",
+            schedule: "1 times every 1 Days for 6 Months",
+            owner: "--",
+            discipline: "Physical Terapy, Patient",
+          },
+        ],
+      },
+      {
+        id: 4,
+        description: "Continue to play piano",
+        targetDate: "12/31/2019",
+        status: "In Progress",
+        other: true,
+        owner: "REED, LOUIE",
+        progression: "Progressing",
+        discipline: "Occupational Therapy",
+        progressionUpdated: "10/9/2019 12:05PM",
+        comments: [
+          {
+            id: "1",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "2",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+          {
+            id: "3",
+            comment: "Comment related to health concern",
+            commentUser: "Penny Dubois",
+            commentDateTime: "09/09/2019 20:32",
+          },
+        ],
+        activities: [
+          {
+            description: "Take Medication As Prescribed",
+            schedule: "No",
+            owner: "REED, LOUIE",
+            discipline: "Medical",
+          },
+          {
+            description: "Walk for 30 minutes daily",
+            schedule: "1 times every 1 Days for 6 Months",
+            owner: "--",
+            discipline: "Physical Terapy, Patient",
+          },
+        ],
+      },
+    ],
     strengths: [
       { description: "Adaptable" },
       { description: "Adequate Decision-making Skills" },
